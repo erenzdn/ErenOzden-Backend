@@ -32,7 +32,16 @@
       ]
     },
     "techStack": {
+      "type": "json"
+    },
+    "githubUrl": {
       "type": "string"
+    },
+    "liveUrl": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
