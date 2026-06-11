@@ -26,5 +26,5 @@ COPY --from=build --chown=strapi:strapi /opt/app ./
 ENV PATH=/opt/node_modules/.bin:$PATH
 
 USER strapi
-EXPOSE 1337
+EXPOSE 1338
 CMD ["npm", "run", "start"]
