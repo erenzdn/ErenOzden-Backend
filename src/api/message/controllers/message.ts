@@ -49,7 +49,7 @@ async function verifyTurnstileToken(
   return response.json() as Promise<TurnstileVerifyResponse>;
 }
 
-function getClientIp(ctx: Core.RequestContext): string | undefined {
+function getClientIp(ctx: { request: { headers: Record<string, string | string[] | undefined>; ip?: string } }): string | undefined {
   const xForwardedFor = ctx.request.headers['x-forwarded-for'];
   if (typeof xForwardedFor === 'string') {
     return xForwardedFor.split(',')[0]?.trim();

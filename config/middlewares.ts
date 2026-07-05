@@ -98,6 +98,11 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Middlewar
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: 'global::admin-asset-404',
+    config: {},
+    resolve: './src/middlewares/admin-asset-404',
+  },
 ];
 
 export default config;

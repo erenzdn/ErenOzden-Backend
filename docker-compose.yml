@@ -3,8 +3,9 @@ services:
     build: .
     container_name: strapi
     restart: unless-stopped
-    ports:
-      - "1338:1338"
+    # Host port publish yok — erişim yalnızca nginx_internal (nginx-gateway) üzerinden
+    expose:
+      - "1338"
     env_file: .env
     environment:
       DATABASE_HOST: strapi-db
@@ -12,6 +13,9 @@ services:
       - strapi-uploads:/opt/app/public/uploads
     depends_on:
       - strapi-db
+    networks:
+      - default
+      - nginx_internal
 
   strapi-db:
     image: postgres:17-alpine
@@ -27,3 +31,8 @@ services:
 volumes:
   strapi-uploads:
   strapi-pgdata:
+
+networks:
+  nginx_internal:
+    external: true
+    name: nginx_internal

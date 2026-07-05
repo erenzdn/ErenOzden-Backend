@@ -6,7 +6,6 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Server =>
   url: env('PUBLIC_URL', 'https://api.mehmeterenozden.com'),
   proxy: {
     koa: env.bool('IS_PROXIED', true),
-    global: env.bool('IS_PROXIED', true),
   },
   app: {
     keys: env.array('APP_KEYS'),

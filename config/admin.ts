@@ -1,7 +1,7 @@
 import type { Core } from '@strapi/strapi';
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => ({
-  url: env('ADMIN_URL', 'https://yonetimpaneli.mehmeterenozden.com'),
+  url: env('ADMIN_URL', 'https://yonetimpaneli.mehmeterenozden.com/admin'),
   serveAdminPanel: env.bool('SERVE_ADMIN', true),
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
